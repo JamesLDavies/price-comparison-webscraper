@@ -7,6 +7,7 @@ HEADERS = (
     'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
     'Accept-Language': 'en-US, en;q=0.5'})
 
+
 def web_scraper():
     """
     web_scraper
@@ -21,6 +22,8 @@ def web_scraper():
     price = soup.find('p', class_='price price--large')
     price = float(price.get_text().replace('£', '').strip()) if price else None
     print(f"{title}: £{price}")
+    review_score = soup.find('span', class_='star-ratings')['title']
+    print(review_score)
 
 
 if __name__ == "__main__":
